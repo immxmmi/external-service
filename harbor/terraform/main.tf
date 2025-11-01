@@ -1,18 +1,3 @@
-terraform {
-  required_providers {
-    proxmox = {
-      source  = "bpg/proxmox"
-      version = ">= 0.50.0"
-    }
-  }
-}
-
-provider "proxmox" {
-  endpoint  = var.proxmox_api_url
-  insecure  = true
-  api_token = var.proxmox_api_token
-}
-
 resource "proxmox_virtual_environment_vm" "harbor" {
   name        = var.vm_name
   node_name   = var.node_name
