@@ -32,3 +32,8 @@ variable "vm_disk_datastore" {
   type        = string
   description = "Datastore for VM disk"
 }
+
+variable "vm_tags" {
+  type        = list(string)
+  description = "Tags for the VM in Proxmox"
+}
