@@ -13,3 +13,4 @@ vm_bridge            = "vmbr0"
 
 vm_initial_user    = "momo"
 vm_initial_ssh_key = "./ssh/id_rsa.pub"
+vm_iso_file = "ubuntu-24.04.2-live-server-amd64.iso"

@@ -37,3 +37,8 @@ variable "vm_tags" {
   type        = list(string)
   description = "Tags for the VM in Proxmox"
 }
+
+variable "vm_iso_file" {
+  type        = string
+  description = "ISO to boot from for installation"
+}

@@ -10,6 +10,11 @@ resource "proxmox_virtual_environment_vm" "vm" {
     interface    = "scsi0"
   }
 
+  disk {
+    interface = "ide2"
+    file_id   = "local:iso/${var.vm_iso_file}"
+  }
+
   cpu {
     cores = var.vm_cores
   }
