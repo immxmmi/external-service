@@ -8,32 +8,32 @@ terraform {
 }
 
 provider "proxmox" {
-  endpoint  = "https://server:8006/api2/json"
+  endpoint  = var.proxmox_api_url
   insecure  = true
-  api_token = "terraform@pam!tf=912c12d4-9c82-4cb4-a29d-bf34055fc790"
+  api_token = var.proxmox_api_token
 }
 
 resource "proxmox_virtual_environment_vm" "harbor" {
-  name        = "htest"
-  node_name   = "pve"
+  name        = var.vm_name
+  node_name   = var.node_name
   description = "Harbor test VM"
 
   disk {
-    datastore_id = "local-lvm"
-    size         = 10
+    datastore_id = var.vm_disk_datastore
+    size         = var.vm_disk_size
     interface    = "scsi0"
   }
 
   cpu {
-    cores = 2
+    cores = var.vm_cores
   }
 
   memory {
-    dedicated = 4096
+    dedicated = var.vm_memory
   }
 
   network_device {
-    bridge = "vmbr0"
+    bridge = var.vm_bridge
   }
 
   agent {
