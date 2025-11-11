@@ -1,0 +1,12 @@
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token eyJhIjoiY2UzZjQ2MGQyOWM4M2VhOWYwNTYzNTgxNDYwMmVkMTYiLCJ0IjoiZTcxMjA0ZmMtYmI0OS00YmQwLWI1ZTctNzgzOTQyOGQ0Mzc4IiwicyI6Ik9UUTBZakZsTVdRdFlqVXdaaTAwTkdaa0xXSTROekV0WVdWbVl6VmlObVJtWTJGaCJ9
+    networks:
+      - cloudflare
+
+networks:
+  cloudflare:
+    driver: bridge
